@@ -1,0 +1,36 @@
+Watching for file changes with StatReloader
+G:\IT-APTECH\Bai-tap-Code\Python\Demo\demo\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /userslogin/ HTTP/1.1" 200 2360
+"POST /userslogin/ HTTP/1.1" 200 2374
+G:\IT-APTECH\Bai-tap-Code\Python\Demo\demo\demo\settings.py changed, reloading.
+Watching for file changes with StatReloader
+G:\IT-APTECH\Bai-tap-Code\Python\Demo\demo\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+G:\IT-APTECH\Bai-tap-Code\Python\Demo\demo\demo\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /userslogin/ HTTP/1.1" 200 2360
+"POST /userslogin/ HTTP/1.1" 200 2374
+G:\IT-APTECH\Bai-tap-Code\Python\Demo\demo\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /userslogin/ HTTP/1.1" 200 2360
+"POST /userslogin/ HTTP/1.1" 200 2374
+"POST /userslogin/ HTTP/1.1" 200 2374
+G:\IT-APTECH\Bai-tap-Code\Python\Demo\demo\users\forms.py changed, reloading.
+Watching for file changes with StatReloader
+G:\IT-APTECH\Bai-tap-Code\Python\Demo\demo\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+G:\IT-APTECH\Bai-tap-Code\Python\Demo\demo\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /userslogin/ HTTP/1.1" 200 2432
+"POST /userslogin/ HTTP/1.1" 200 2304
+"POST /userslogin/ HTTP/1.1" 200 2304
+"POST /userslogin/ HTTP/1.1" 200 2304
+G:\IT-APTECH\Bai-tap-Code\Python\Demo\demo\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /userslogin/ HTTP/1.1" 302 0
+"GET /userslogin/ HTTP/1.1" 200 2290
+G:\IT-APTECH\Bai-tap-Code\Python\Demo\demo\demo\settings.py changed, reloading.
