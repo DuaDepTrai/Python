@@ -39,4 +39,4 @@ def delete_student(request, id):
     if request.method == 'POST':
         student.delete()
         return redirect('students_list')
-    return render(request, 'confirm_delete.html', {'student': student})
+    return render(request, 'confirm_delete_student.html', {'student': student})

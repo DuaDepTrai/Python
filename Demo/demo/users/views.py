@@ -10,22 +10,18 @@ from .forms import LoginForm
 from .forms import UserForm
 from .models import User
 from .decorators import login_required_custom
-import hashlib
-import uuid, json
-import logging
 
 # Create your views here.
-logger = logging.getLogger('users')  # Đặt tên logger trùng với settings.py
 
 @login_required_custom
 def add_user(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)  # Không lưu ngay vào DB
+            user = form.save(commit=False)  
             if form.cleaned_data['password']:
-                user.set_password(form.cleaned_data['password'])  # Hash password
-            user.save()  # Lưu vào DB
+                user.set_password(form.cleaned_data['password'])  
+            user.save()  #
             return redirect('user_list')
     else:
         form = UserForm()
@@ -33,7 +29,6 @@ def add_user(request):
 
 @login_required_custom
 def user_list(request):
-    # xử lý show user list
     return render(request, 'user_list.html', {'users': User.objects.all()})
 
 @login_required_custom
@@ -60,12 +55,12 @@ def update_user(request, id):
     return render(request, 'update_user.html', {'form': form, 'user': user})
 
 @login_required_custom
-def delete_user(request, id):  # Nhận tham số id
-    user = get_object_or_404(User, id=id)  # Lấy người dùng theo id
-    if request.method == 'POST':  # Nếu là POST, xóa người dùng
+def delete_user(request, id):
+    user = get_object_or_404(User, id=id) 
+    if request.method == 'POST':  
         user.delete()
-        return redirect('user_list')  # Chuyển đến trang danh sách người dùng
-    return render(request, 'confirm_delete.html', {'user': user})  # Nếu là GET, hiển thị form xác nhận
+        return redirect('user_list')  
+    return render(request, 'confirm_delete.html', {'user': user})  
 
 def login_user(request):
     if request.method == 'POST':
@@ -74,25 +69,14 @@ def login_user(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
 
-            # Kiểm tra user có tồn tại không
-            try:
-                user = User.objects.get(username=username)
-            except User.DoesNotExist:
-                user = None
+            user = authenticate(request, username=username, password=password)
 
-            # Nếu user tồn tại, kiểm tra mật khẩu
             if user is not None:
-                # Kiểm tra mật khẩu bằng check_password
-                if check_password(password, user.password):
-                    login(request, user)  # Đăng nhập với Django
-                    return redirect('user_list')
-                else:
-                    messages.error(request, 'Invalid password')  # Mật khẩu sai
-                    return redirect('login')
+                login(request, user) 
+                return redirect('home')
             else:
-                messages.error(request, 'Invalid username')  # Tên người dùng không tồn tại
+                messages.error(request, 'Invalid username or password')
                 return redirect('login')
-
     else:
         form = LoginForm()
 
