@@ -3,17 +3,23 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 class UserManager(BaseUserManager):
     def create_user(self, username, fullname, phone, email, password=None):
+        if not username:
+            raise ValueError('The Username field must be set')
+        if not fullname:
+            raise ValueError('The Fullname field must be set')
+        if not phone:
+            raise ValueError('The Phone field must be set')
         if not email:
             raise ValueError('The Email field must be set')
+        if not password:
+            raise ValueError('The Password field must be set')
         email = self.normalize_email(email)
-        user = self.model(username=username, fullname=fullname, phone=phone, email=email)
+        user = self.model(
+            username=username, 
+            fullname=fullname, 
+            phone=phone, 
+            email=email)
         user.set_password(password)  # Đảm bảo mật khẩu được hash
-        user.save(using=self._db)
-        return user
-
-    def create_superuser(self, username, fullname, phone, email, password=None):
-        user = self.create_user(username, fullname, phone, email, password)
-        user.is_admin = True  # Cần có cờ này nếu tạo admin
         user.save(using=self._db)
         return user
 

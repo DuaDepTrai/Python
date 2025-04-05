@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'users',
+    'students',
 ]
 
 MIDDLEWARE = [
@@ -132,6 +133,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cấu hình session sử dụng Redis
 SESSION_ENGINE = "django.contrib.sessions.backends.db"  # Sử dụng bộ nhớ cache để lưu session
+SESSION_COOKIE_AGE = 3600  # 1 hour
+
 # SESSION_CACHE_ALIAS = "default"
 
 CACHES = {

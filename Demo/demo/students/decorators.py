@@ -1,5 +1,4 @@
 from django.shortcuts import redirect
-# from django_redis import get_redis_connection
 
 def login_required_custom(view_func):
     def wrapper(request, *args, **kwargs):
